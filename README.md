@@ -128,7 +128,6 @@ npx degit haremank/nsfw-prompt ~/.agents/skills/nsfw-prompt
 SKILL.md                 给 agent 的编译说明
 README.md                本页
 LICENSE
-agents/openai.yaml       Codex / ChatGPT 展示；关闭隐式触发
 references/              按需加载（安全、IR、方言、配方、测试）
 ```
 
