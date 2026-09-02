@@ -4,28 +4,26 @@
 [![Skill format](https://img.shields.io/badge/skill-SKILL.md-blue.svg)](SKILL.md)
 [![skills.sh](https://skills.sh/b/haremank/nsfw-prompt)](https://skills.sh/haremank/nsfw-prompt)
 
-**仅限 18+。** 把成人图像需求编译成可复制的提示词。不画图，不调生成 API。
+**仅限 18+。** 把成人图像需求编译成可复制的提示词。本项目不画图、不调生成 API；生成内容由使用者在各自平台自行完成并承担全部责任，请遵守当地法律与平台服务条款。
 
-默认主体：22 岁日本美人、G-cup、杏眼；庭园 / Rembrandt / Portra / 肢体锁。线上未指定模型时默认 **Grok L5-S3**。Agent 读 [`SKILL.md`](SKILL.md)。
+默认主体：22 岁日本美人、G-cup、杏眼；庭园 / Rembrandt / Portra / 肢体锁。默认模型 **Grok Imagine**（L5-S3）——平台端适配目前只有 Grok，Flux、Z-Image、Pony 等为本地模型适配。Agent 读 [`SKILL.md`](SKILL.md)。
 
 ## 支持的模型
 
-| 你说 | 编译方言 |
-| --- | --- |
-| 未指定 / 线上 / grok / grok imagine / spicy / image2 | **Grok Imagine** 散文（无 Negative 栏；无五层解剖） |
-| 本地 | Flux 散文 **和** Pony 标签 |
-| flux / sd3 / 写实散文 | Flux 散文 |
-| z-image / zimage / krea / qwen-image | Z-Image 散文（Flux 家族，偏皮肤与颗粒） |
-| pony | Pony 标签（`score_9` 头） |
-| illustrious / noob / noobai / xl 动漫 | Illustrious / NoobAI 标签（`masterpiece, newest`，不用 `score_9`） |
-| nai / novelai | NovelAI 标签 |
-| juggernaut / realistic vision / sdxl 写实 | SDXL 写实混合（短句 + 少量标签） |
-| sd1.5 / 1.5 | SD1.5 短标签 |
-| wan / 视频 | Wan 降级：短动作句 + 中文视频负面 |
-| 私处真清晰 / 真显式 / 五层解剖 | **本地栈**（Pony / Flux）主出或陪跑；Grok 仍停在 L5 文学写法 |
-| midjourney / dalle / gpt-image | 仍编译 **Grok L4/L5** 形状 + 一行「宿主可能拒绝」；不写越狱 payload |
+| 模型 | 你说 | 编译方式 |
+| --- | --- | --- |
+| **Grok Imagine**（默认） | 未指定 / grok / grok imagine / spicy / image2 | 散文，L1–L5；无 Negative 栏，无五层解剖 |
+| **Flux** | flux / sd3 / 写实散文 / 本地 | 完整英文散文；说「本地」时与 Pony 双出 |
+| **Z-Image**（Krea / Qwen-Image） | z-image / zimage / krea / qwen-image | Flux 家族散文，偏皮肤与颗粒 |
+| **Pony** | pony | `score_9` 标签头 |
+| **Illustrious / NoobAI** | illustrious / noob / noobai / xl 动漫 | `masterpiece, newest` 标签头，不用 `score_9` |
+| **NovelAI** | nai / novelai | NAI 标签 |
+| **SDXL 写实**（Juggernaut / Realistic Vision） | juggernaut / realistic vision / sdxl 写实 | 短句 + 少量标签 |
+| **SD1.5** | sd1.5 / 1.5 | 短标签 |
+| **Wan 视频** | wan / 视频 | 降级编译：短动作句 + 中文视频负面 |
+| Midjourney / DALL·E / GPT-image | midjourney / dalle / gpt-image | 编译 Grok L4/L5 形状 + 一行「平台可能拒绝」；不写越狱 payload |
 
-方言之间只重渲 IR，不把 Flux 句子贴进标签模型，也不把 `score_9` 贴进 Flux / Grok。
+深度显式（五层解剖 / 真显式）建议交给 **Pony** 或 **Flux**；Grok 停在 L5 文学写法，不跟进。方言之间只重渲 IR：不把 Flux 句子贴进标签模型，也不把 `score_9` 贴进 Flux / Grok。
 
 ## 完整限制级
 
@@ -37,7 +35,7 @@
 | **L2** | 1–2 处走光。袍子仍穿，单肩滑落、乳沟；髋仍盖 | 不写 | L2 / 走光 / 滑肩 / 乳沟 |
 | **L3** | 半裸，不是上下都全露。默认露胸，袍子褪到肘，髋仍裹到大腿中。也可反过来：下身裸、胸仍盖 | 不写 | L3 / 半裸 / 露胸 / 解开 |
 | **L4** | 有衣服 + 高暴露。半褪袍仍穿，胸露，下身沿腰带/胯链可读 | 轻触光泽，不写 `fully shown` | L4 / 半遮 / 写真 / 香水广告 / 少量衣服 / 高暴露 |
-| **L5**（默认） | **无穿在身上的衣服。** 袍子丢在脚后。只留胯链，什么都不遮 | 默认 **S3**（见下） | 线上 / 全裸 / 脱光 / 未指定 |
+| **L5**（默认） | **无穿在身上的衣服。** 袍子丢在脚后。只留胯链，什么都不遮 | 默认 **S3**（见下） | 全裸 / 脱光 / 未指定 |
 
 L5 私处子档（覆盖 L5，不是第六档）：
 
@@ -48,7 +46,7 @@ L5 私处子档（覆盖 L5，不是第六档）：
 | **S3**（默认） | 腿微开，Rembrandt 光照在腿缝皮肤上，不再往下写 |
 | **S4** | 用户点名「展示私处」才用；Grok 仍文学轻触，五层解剖只给本地栈 |
 
-未指定时：线上 → **L5-S3**；着衣/走光/半裸/半遮分别落到 L1–L4。L4/L5 被宿主打回时降到 L3，不靠越狱加码。
+未指定时默认 **L5-S3**（Grok）；着衣/走光/半裸/半遮分别落到 L1–L4。L4/L5 被平台打回时降到 L3，不靠越狱加码。
 
 ## 安装
 
