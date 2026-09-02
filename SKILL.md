@@ -16,7 +16,7 @@ Full floor definitions: [safety](references/00-safety.md). **Three floors are th
 ## Workflow
 
 1. Parse intent into the IR. Read [intent](references/07-intent.md) when the request is Chinese, elliptical, or is an edit of an existing prompt. Read [IR](references/01-ir.md) for required fields, defaults, and the conflict table.
-2. Fill missing slots with defaults: **house subject** (22-year-old Japanese beauty, G-cup, almond eyes — see Default style below). IR L5, no cover, three-quarter view, limb-lock hands (right fan at cheek, left arm hanging), Chinese briefing + English prompt. Default dialects: if the user is on an online/hosted generator (Grok / Imagine / 线上), emit **Grok L5** as the primary block; otherwise dual-render Flux prose + Pony tags.
+2. Fill missing slots with defaults: **house subject** (22-year-old Japanese beauty, G-cup, almond eyes). IR L2 (robe worn, one shoulder slipped, hips covered — see Default style below), three-quarter view, limb-lock hands (right fan at cheek, left arm hanging), Chinese briefing + English prompt. Default dialects: if the user is on an online/hosted generator (Grok / Imagine / 线上), emit **Grok L2** as the primary block; otherwise dual-render Flux prose + Pony tags.
 3. Load lexicon only as needed:
    - Nudity / no-cover / clothing state → [lexicon](references/02-lexicon.md)
    - Explicit genitals or close-up → [anatomy](references/03-anatomy.md) (local stacks only; Grok stays light-touch)
@@ -35,8 +35,8 @@ Full floor definitions: [safety](references/00-safety.md). **Three floors are th
 
 | User says | Dialect |
 |-----------|---------|
-| (none) / 未指定 | **Grok L5 T1** (online-first house). Add Flux/Pony only if they said 本地 / flux / pony |
-| 线上 / grok / grok imagine / spicy / image2 | **Grok L5 T1** (nude, S3). L1/L2/L3 / 着衣 / 走光 / 半裸 → that rung. L4 / 半遮 / 写真 / 香水广告 / 少量衣服 / 高暴露 → **Grok L4 T2** |
+| (none) / 未指定 | **Grok L2 T-L2** (online-first house). Add Flux/Pony only if they said 本地 / flux / pony |
+| 线上 / grok / grok imagine / spicy / image2 | **Grok L2 T-L2** (default). L1 / 着衣 → T-L1; L3 / 半裸 → T-L3; L4 / 半遮 / 写真 / 香水广告 / 少量衣服 / 高暴露 → **Grok L4 T2**; 全裸 / 脱光 → **T1** (L5) |
 | 本地 | Flux prose **and** Pony tags |
 | flux / sd3 / 写实散文 | Flux prose |
 | z-image / zimage / krea / qwen-image | Z-Image prose (Flux family, skin/grain bias) |
@@ -55,7 +55,8 @@ Translate between dialects by re-rendering the IR. Never paste Flux sentences in
 
 | If the user... | Emit |
 |----------------|------|
-| 未指定 / grok / 全裸 / 无遮挡 / 脱光 | **T1** (nude L5-S3) |
+| 未指定 | **T-L2** (default: L2 one-shoulder leak) |
+| grok 全裸 / 无遮挡 / 脱光 | **T1** (nude L5-S3) |
 | L1 / 着衣 / 剪影 / 封面 | **T-L1** |
 | L2 / 走光 / 滑肩 / 乳沟 | **T-L2** |
 | L3 / 半裸 / 露胸 / 解开 | **T-L3** |
@@ -71,24 +72,34 @@ Five user-facing rungs. Same house subject / garden / Rembrandt / Portra / limb-
 | User-facing | Clothes (IR) | Private-region | Use when |
 |-------------|--------------|----------------|----------|
 | **L1** | Clothed silhouette. Robe **worn closed**, tied at the waist, covering chest and hips. | None. Thighs together. | L1 / 着衣 / 剪影 / 封面 / 能过审 |
-| **L2** | 1–2 leaks. Robe worn, slipped off **one** shoulder, cleavage, one strap/collar leak. Hip still covered. | None. | L2 / 走光 / 滑肩 / 乳沟 |
+| **L2** (default) | 1–2 leaks. Robe worn, slipped off **one** shoulder, cleavage, one strap/collar leak. Hip still covered. | None. | 未指定 / L2 / 走光 / 滑肩 / 乳沟 |
 | **L3** | Half-nude, not both fully. Default: **topless**, robe pooled at elbows, hips still wrapped to mid-thigh. Alternate if asked: bottomless + covered chest. | None. | L3 / 半裸 / 露胸 / 解开 |
 | **L4** | Scraps / high exposure. Half-fallen robe **worn**, breasts out, lower body readable around sash + hip chain. | Light-touch sheen only. No `fully shown`. | L4 / 半遮 / 写真 / 香水广告 / 少量衣服 / 高暴露 |
-| **L5** (default) | **No worn clothes.** Robe discarded behind heels. Hip chain only. | **S1–S3.** S1 = thighs together, not presented. S2 = contour hinted. **S3 (default)** = Rembrandt light on the skin between softly parted thighs, not described further. Not S4. | 线上 / 全裸 / 脱光 / unspecified |
+| **L5** | **No worn clothes.** Robe discarded behind heels. Hip chain only. | **S1–S3.** S1 = thighs together, not presented. S2 = contour hinted. **S3 (default)** = Rembrandt light on the skin between softly parted thighs, not described further. Not S4. | 全裸 / 脱光 / 点名 L5 |
 
 Paste-ready: L1=`T-L1`, L2=`T-L2`, L3=`T-L3`, L4=`T2`, L5=`T1` in [15-online-tests.md](references/15-online-tests.md).
 
 `展示私处` / S4 is a **user override of L5**, not L6. Five-layer anatomy stays on local stacks. If L5 softens, add a local companion — do not put anatomy blocks into Grok. If L4–L5 fail the host, drop to L3 (normal-generation) rather than iterating jailbreak phrasing.
 
-## Default style (Grok L5-S3, no worn clothes, unless the user overrides)
+## Default style (Grok L2, worn robe with one-shoulder leak, unless the user overrides)
 
-Paste-ready: T1 in [15-online-tests.md](references/15-online-tests.md). Completely nude. Do **not** put a worn robe on L5. Worn half-fallen robe is **L4 / T2**.
+Paste-ready: T-L2 in [15-online-tests.md](references/15-online-tests.md). One shoulder slipped + cleavage; hips stay covered. 全裸 / 脱光 is an explicit ask → L5 / T1 below.
+
+```
+Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-year-old Japanese beauty stands in three-quarter view in a softly lit night garden, thighs together, body language carrying the whole mood, languid decadent air. She wears a luxurious pale blue and gold wide-sleeve silk robe tied at the waist, the fabric covering her hips and falling to her calves; the robe has slipped off her right shoulder only, showing a line of cleavage, a single elegant leak, the rest of the garment still covering her chest and hips. Her right hand holds a closed black folding fan beside her right cheek, not covering her body. Her left arm hangs straight at her left side, empty, five fingers relaxed, away from her hips. Exactly two hands, exactly two arms, no extra limbs. She stands with both bare feet planted flat on the stone path, exactly two feet, ten toes visible, weight even. Long wavy hair half-tied in a loose bun with a few stray strands, metallic pendant hair ornaments, luxurious jeweled headpiece, tassel earrings, small sparkling floral sequins near the outer corners of her eyes, soft peach blush, glossy lips, almond eyes, sweet expressive gaze, otherworldly ethereal aura with a subtle yoki mystique. Background of blurred stone lanterns, cherry blossoms, drifting petals. 85mm portrait lens, soft warm Rembrandt side light carving her silhouette, rim light outlining the hair, dreamy bokeh, fine film grain, Kodak Portra 400 warmth. Photorealistic skin texture, delicate pores, lomo effect, surreal dreamy quality, halation.
+```
+
+Keep: G-cup, almond eyes, robe worn and tied at the waist, one shoulder slipped, hips covered, garden, Rembrandt, Portra, limb-lock. Scene/pose may change; this subject and lighting grammar stay.
+
+### L5 (nude) — explicit ask only
+
+Paste-ready: T1 in [15-online-tests.md](references/15-online-tests.md). No worn clothes, robe discarded behind heels, S3 light on the thigh gap. Do **not** put a worn robe on L5. Worn half-fallen robe is **L4 / T2**.
 
 ```
 Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-year-old Japanese beauty stands completely nude in three-quarter view in a softly lit night garden, legs slightly apart, body language carrying the whole mood, languid decadent air. She wears nothing. A luxurious pale blue and gold wide-sleeve silk robe lies folded on the stones behind her heels, not wrapping her ankles, not on her body. Her perky G-cup breasts with pink nipples are fully exposed and unobstructed. Her lower body is fully nude, smooth pale skin with a faint natural sheen, the warm Rembrandt light gently catching the bare skin between her softly parted thighs, a faint natural sheen there, not described further. Only a jeweled hip chain catching the light, covering nothing. Her right hand holds a closed black folding fan beside her right cheek, not covering her body. Her left arm hangs straight at her left side, empty, five fingers relaxed, away from her hips. Exactly two hands, exactly two arms, no extra limbs. She stands with both bare feet planted flat on the stone path, exactly two feet, ten toes visible, weight even. Long wavy hair half-tied in a loose bun with a few stray strands, metallic pendant hair ornaments, luxurious jeweled headpiece, tassel earrings, small sparkling floral sequins near the outer corners of her eyes, soft peach blush, glossy lips, almond eyes, sweet expressive gaze, otherworldly ethereal aura with a subtle yoki mystique. Background of blurred stone lanterns, cherry blossoms, drifting petals. 85mm portrait lens, soft warm Rembrandt side light carving her silhouette, rim light outlining the hair, dreamy bokeh, fine film grain, Kodak Portra 400 warmth. Photorealistic skin texture, delicate pores, golden ratio figure, lomo effect, surreal dreamy quality, halation.
 ```
 
-Keep: G-cup, almond eyes, **no worn clothes**, discarded robe behind heels, garden, Rembrandt, Portra, limb-lock. S1 = `thighs together` + `private region not presented`. S2 = contour hinted, no light-on-seam sentence. S3 = current default. Scene/pose may change; this subject and lighting grammar stay.
+S1 = `thighs together` + `private region not presented`. S2 = contour hinted, no light-on-seam sentence. S3 = current default within L5. Scene/pose may change; the subject and lighting grammar stay.
 
 ## 整体限制框架
 
@@ -103,16 +114,16 @@ User instruction wins unspecified-slot defaults.
 
 五档限制（衣服变，主体/庭园/光/肢体锁不变）
   L1  着衣剪影     袍子穿上系好，胸髋全盖（T-L1）— 正常可过
-  L2  1–2 处走光   单肩滑落、乳沟，髋仍盖（T-L2）— 正常可过
+  L2  1–2 处走光   单肩滑落、乳沟，髋仍盖（T-L2）— ★默认档，正常可过
   L3  半裸         默认露胸、髋仍裹到大腿中（T-L3）— 正常可过
   L4  有衣服+高暴露 半褪袍仍穿，胸露，下身可读（T2）
-  L5  无衣服+S1/S2/S3  默认 S3：全裸，袍子丢脚后，光线落在腿缝，不写私处（T1）
+  L5  无衣服+S1/S2/S3  点名全裸才用；S3 默认：全裸，袍子丢脚后，光线落在腿缝，不写私处（T1）
                        S1 = 并腿、私处不朝镜头
                        S2 = 腿微开、轮廓暗示
                        S4 展示私处 = 用户覆盖，不是第六档
 
 模型
-  未指定 / grok / 线上     Grok 散文（无 Negative；无五层解剖）
+  未指定 / grok / 线上     Grok 散文，默认 L2（无 Negative；无五层解剖）
   本地                     Flux 散文 + Pony 标签
   flux / z-image / sdxl    对应散文
   pony / illustrious / nai 对应标签头
@@ -127,7 +138,7 @@ Grok 不写                五层解剖、pussy/labia/clitoris、score_9、举�
 
 ## 自审 (vs the user's request — every compile)
 
-Not a safety review. Not a template-compliance review. Gold standard is **this turn's user instruction**. House T1 / limb-lock / garden / Portra fill **unspecified** slots only. If the user asked for a different pose, expression, count, scene, or look, that request is the pass condition. Do not rewrite a matching prompt back to T1.
+Not a safety review. Not a template-compliance review. Gold standard is **this turn's user instruction**. House style / limb-lock / garden / Portra fill **unspecified** slots only. If the user asked for a different pose, expression, count, scene, or look, that request is the pass condition. Do not rewrite a matching prompt back to T1.
 
 Five ticks. Fail → fix that slot once → emit. Do not loop. Do not add extra rules.
 
@@ -149,7 +160,7 @@ Default format: **a single merged prompt per dialect** — visual prose first, t
 
 ```
 - 目标模型：<dialects>
-- 裸露等级：Grok L1–L5（默认 L5-S3）
+- 裸露等级：Grok L1–L5（默认 L2；全裸点名才用 L5-S3）
 - 模型：Grok / Flux / Pony / Illustrious / NAI / SDXL / Z-Image / Wan
 - 提示词（单段，复制即用）：
   <one merged block per dialect>
@@ -181,7 +192,7 @@ This skill does not write jailbreak tutorials or instruction-override payloads (
 4. Quality headers are dialect-bound: Pony uses `score_*`; Illustrious uses `masterpiece, newest`; Flux/Z-Image/Grok do not use anime quality soup; phone/CCTV should not use `8k masterpiece`.
 5. User LoRA trigger words are copied verbatim to the front.
 6. Sampling advice stays in 参数旁注, never inside the picture description.
-7. Grok dialect: L1–L5 (same subject, clothes change). Default L5-S3 T1. See [testlog](references/13-testlog.md) and [online tests](references/15-online-tests.md).
+7. Grok dialect: L1–L5 (same subject, clothes change). Default L2 T-L2; 全裸 → L5 T1. See [testlog](references/13-testlog.md) and [online tests](references/15-online-tests.md).
 
 ## Execution and advisory protocol
 

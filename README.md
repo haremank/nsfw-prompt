@@ -17,13 +17,13 @@ Compile adult (18+) image requests into copy-paste English prompts · 中文提�
 > [!CAUTION]
 > **仅限 18+。** 本项目只编译提示词文本，不画图、不调生成 API；生成内容由使用者在各自平台自行完成并承担全部责任，请遵守当地法律与平台服务条款。
 
-**默认主体**：22 岁日本美人、G-cup、杏眼；庭园 / Rembrandt / Portra / 肢体锁。**默认模型**：Grok Imagine（L5-S3）——平台端适配目前只有 Grok，Flux、Z-Image、Pony 等为本地模型适配。Agent 读 [`SKILL.md`](SKILL.md)。
+**默认主体**：22 岁日本美人、G-cup、杏眼；庭园 / Rembrandt / Portra / 肢体锁。**默认模型**：Grok Imagine（默认档 **L2** 走光；全裸点名才用 L5-S3）——平台端适配目前只有 Grok，Flux、Z-Image、Pony 等为本地模型适配。Agent 读 [`SKILL.md`](SKILL.md)。
 
 ---
 
 ## ✨ 特性
 
-- **五档暴露 × 私处子档** — L1 着衣剪影 → L5 全裸（S1–S4 子档），换模型不重写
+- **五档暴露 × 私处子档** — 默认 **L2** 走光档；L1 着衣剪影 → L5 全裸（S1–S4 子档）点名切换，换模型不重写
 - **10+ 模型方言** — Grok Imagine（默认）/ Flux / Z-Image / Pony / Illustrious / NovelAI / SDXL / SD1.5 / Wan 视频；MJ / DALL·E 也能出兼容形状
 - **中文提需求，英文出提示词** — 输出自带五行自审（手脚 / 神情 / 多人 / 环境 / 风格）
 - **执行优先** — 用户指令优先于模板默认；打破默认时附「边界与建议」而非拒绝
@@ -33,11 +33,14 @@ Compile adult (18+) image requests into copy-paste English prompts · 中文提�
 
 ## 🎨 默认风格
 
-主体、庭园、光影、肢体锁固定的 house 风格成品，Grok Imagine 复制即用；换档位 / 换场景 / 换模型时点名，skill 会在同一语法上重渲：
+主体、庭园、光影、肢体锁固定的 house 风格成品（**默认档 L2**，Grok Imagine 复制即用）；换档位 / 换场景 / 换模型时点名，skill 会在同一语法上重渲：
 
 ```text
-Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-year-old Japanese beauty stands in three-quarter view in a softly lit night garden, body language carrying the whole mood, languid decadent air. She wears a luxurious pale blue and gold wide-sleeve silk robe draped off both shoulders, the fabric pooling at her elbows and falling open to reveal her perky G-cup breasts with pink nipples clearly visible, the robe trailing to her calves. Her lower body is fully visible and unobstructed, with smooth pale skin, the soft skin there with a faint natural sheen in the warm light. A single thin black silk waist sash loosely tied at her hips and a jeweled hip chain catching the light. One hand holds a black folding fan half-covering her face, the other hand raised beside her head, away from her body. Long wavy hair half-tied in a loose bun with stray strands floating in the air, metallic pendant hair ornaments, luxurious jeweled headpiece, tassel earrings, small sparkling floral sequins near the outer corners of her eyes, soft peach blush, glossy lips, almond eyes, sweet expressive gaze, otherworldly ethereal aura with a subtle yoki mystique. Background of blurred stone lanterns, cherry blossoms, drifting petals. 85mm portrait lens, soft warm Rembrandt side light carving her silhouette, rim light outlining the hair, dreamy bokeh, fine film grain, Kodak Portra 400 warmth. Photorealistic skin texture, delicate pores, golden ratio figure, lomo effect, surreal dreamy quality, halation.
+Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-year-old Japanese beauty stands in three-quarter view in a softly lit night garden, thighs together, body language carrying the whole mood, languid decadent air. She wears a luxurious pale blue and gold wide-sleeve silk robe tied at the waist, the fabric covering her hips and falling to her calves; the robe has slipped off her right shoulder only, showing a line of cleavage, a single elegant leak, the rest of the garment still covering her chest and hips. Her right hand holds a closed black folding fan beside her right cheek, not covering her body. Her left arm hangs straight at her left side, empty, five fingers relaxed, away from her hips. Exactly two hands, exactly two arms, no extra limbs. She stands with both bare feet planted flat on the stone path, exactly two feet, ten toes visible, weight even. Long wavy hair half-tied in a loose bun with a few stray strands, metallic pendant hair ornaments, luxurious jeweled headpiece, tassel earrings, small sparkling floral sequins near the outer corners of her eyes, soft peach blush, glossy lips, almond eyes, sweet expressive gaze, otherworldly ethereal aura with a subtle yoki mystique. Background of blurred stone lanterns, cherry blossoms, drifting petals. 85mm portrait lens, soft warm Rembrandt side light carving her silhouette, rim light outlining the hair, dreamy bokeh, fine film grain, Kodak Portra 400 warmth. Photorealistic skin texture, delicate pores, lomo effect, surreal dreamy quality, halation.
 ```
+
+> [!NOTE]
+> 全裸 / L5 / S1–S4 是点名档，不会被默认输出；需要时说「全裸」「脱光」即可。
 
 ## 📦 安装
 
@@ -129,10 +132,10 @@ npx degit haremank/nsfw-prompt ~/.agents/skills/nsfw-prompt
 | 档位 | 衣服 | 私处写法 | 触发词 |
 | --- | --- | --- | --- |
 | **L1** | 着衣剪影。袍子穿上系好，遮胸遮髋 | 不写。双腿并拢 | L1 / 着衣 / 剪影 / 封面 / 能过审 |
-| **L2** | 1–2 处走光。袍子仍穿，单肩滑落、乳沟；髋仍盖 | 不写 | L2 / 走光 / 滑肩 / 乳沟 |
+| **L2**（默认） | 1–2 处走光。袍子仍穿，单肩滑落、乳沟；髋仍盖 | 不写 | 未指定 / L2 / 走光 / 滑肩 / 乳沟 |
 | **L3** | 半裸，不是上下都全露。默认露胸，袍子褪到肘，髋仍裹到大腿中。也可反过来：下身裸、胸仍盖 | 不写 | L3 / 半裸 / 露胸 / 解开 |
 | **L4** | 有衣服 + 高暴露。半褪袍仍穿，胸露，下身沿腰带/胯链可读 | 轻触光泽，不写 `fully shown` | L4 / 半遮 / 写真 / 香水广告 / 少量衣服 / 高暴露 |
-| **L5**（默认） | **无穿在身上的衣服。** 袍子丢在脚后。只留胯链，什么都不遮 | 默认 **S3**（见下） | 全裸 / 脱光 / 未指定 |
+| **L5** | **无穿在身上的衣服。** 袍子丢在脚后。只留胯链，什么都不遮 | 默认 **S3**（见下） | 全裸 / 脱光 / 点名 L5 |
 
 <details>
 <summary><strong>L5 私处子档（S1–S4）</strong></summary>
@@ -147,7 +150,7 @@ npx degit haremank/nsfw-prompt ~/.agents/skills/nsfw-prompt
 </details>
 
 > [!NOTE]
-> 未指定时默认 **L5-S3**（Grok）；着衣/走光/半裸/半遮分别落到 L1–L4。L4/L5 被平台打回时降到 L3，不靠越狱加码。
+> 未指定时默认 **L2**（Grok 走光档）；全裸 / 脱光 → L5-S3，着衣 / 半裸 / 半遮分别落到 L1 / L3 / L4。L4/L5 被平台打回时降到 L3，不靠越狱加码。
 
 ## 🛡️ 法律底线
 

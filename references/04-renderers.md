@@ -67,10 +67,10 @@ Spicy Mode is xAI's official adult lane (18+, X Premium). No negative prompt fie
 **Five rungs (L1–L5).** Same house subject. L1–L3 = normal-generation (real worn garment, no private-region sentence). L4–L5 = high-exposure / nude.
 
 - **L1** clothed silhouette = T-L1. Robe worn closed, tied, covering chest and hips.
-- **L2** 1–2 leaks = T-L2. One shoulder slipped, cleavage, hips covered.
+- **L2** (default) 1–2 leaks = T-L2. One shoulder slipped, cleavage, hips covered.
 - **L3** half-nude = T-L3. Topless, robe pooled at elbows, hips wrapped to mid-thigh (not both fully).
 - **L4** scraps / high exposure = T2. Half-fallen robe still worn, breasts out, lower body readable around sash.
-- **L5** (default, **no worn clothes**) = T1. Completely nude, robe folded behind heels, S3 light on the thigh gap. S1/S2 variants; S4 展示私处 is a user override.
+- **L5** (**no worn clothes**; explicit 全裸 ask) = T1. Completely nude, robe folded behind heels, S3 light on the thigh gap. S1/S2 variants; S4 展示私处 is a user override.
 
 Former L6–L9 map to L5. Five-layer anatomy stays on local stacks. If L4/L5 fail the host, drop to L3 rather than iterating anatomy blocks.
 

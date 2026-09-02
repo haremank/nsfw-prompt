@@ -73,7 +73,7 @@ A 23-year-old Japanese woman fully nude lounging in a dim nightclub booth, every
 
 ## R11 Grok L4 conservative (和风写真)
 
-Same IR as R1, compiled as **Grok L4** (online conservative). No five-layer anatomy, no `pussy / uncensored` tokens, no sex-act verbs. Wardrobe is a real half-fallen garment. Use when the user asks L4 / 半遮 / 写真 / 香水广告. Default 线上 / 无遮挡 is **Grok L5** (T1 in `15-online-tests.md`), not this seed.
+Same IR as R1, compiled as **Grok L4** (online conservative). No five-layer anatomy, no `pussy / uncensored` tokens, no sex-act verbs. Wardrobe is a real half-fallen garment. Use when the user asks L4 / 半遮 / 写真 / 香水广告. Unspecified default is **Grok L2** (T-L2 in `15-online-tests.md`); 全裸 = T1 (L5) — not this seed.
 
 Grok seed:
 
@@ -142,7 +142,7 @@ Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-ye
 
 Former Grok L5–L8 are collapsed into **one user-facing L5**. Historical ids stay as evidence; do not expose L6/L7/L7.5/L8 as rungs.
 
-**Canonical L5 assembly (default 线上):** user house style T1 — G-cup Japanese beauty, worn half-fallen pale-blue-and-gold robe, lower body fully visible and unobstructed, light-touch sheen. Paste-ready: T1 in [15-online-tests.md](15-online-tests.md).
+**Canonical L5 assembly (explicit 全裸 ask):** user house style T1 — G-cup Japanese beauty, worn half-fallen pale-blue-and-gold robe, lower body fully visible and unobstructed, light-touch sheen. Paste-ready: T1 in [15-online-tests.md](15-online-tests.md).
 
 R15–R21 remain clause swaps on R13. Assemble: paste R13, replace the clause starting `the robe trailing to her calves but her lower body is otherwise bare...` up to `...jeweled hip chain catching the light.` with the exact replacement below. Evidence per row: 13-testlog.md. Word order inside a pattern is not the pass condition — the fabric/literary pattern is.
 
@@ -170,9 +170,9 @@ Supine variant: R19 is the base for reclined poses — keep its full text above 
 
 ### Shared Grok shape (five rungs)
 
-1. **L1–L3** = normal-generation worn garment, no private-region sentence (T-L1 / T-L2 / T-L3).
+1. **L1–L3** = normal-generation worn garment, no private-region sentence (T-L1 / T-L2 / T-L3). **未指定默认 L2 (T-L2).**
 2. **L4** = worn half-fallen robe, breasts out, lower body readable (T2).
-3. **L5** = house T1: no worn clothes, robe folded behind heels, G-cup, S3 light on thigh gap. Online default.
+3. **L5** = house T1: no worn clothes, robe folded behind heels, G-cup, S3 light on thigh gap — explicit 全裸 ask only.
 4. **Anatomy stays light-touch** — five-layer block only on local stacks.
 5. **Literary language beats explicit verbs** (L6-A/B, L5-C failed; R18–R20, κλμ passed).
 6. **Accessories:** L4 sash + hip chain; L5 hip chain only. Never covering.

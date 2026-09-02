@@ -41,7 +41,7 @@ When the user pastes a long English prompt:
 | 有马赛克 / 被打码 / 遮住了 / 变成色块 | load 12-uncensor; diagnose per symptom table |
 | 不想被和谐 / 去掉打码 | permissive-stack anti-censor engineering (12) |
 | midjourney / dalle / gpt-image / 破限 | compile Grok L4/L5 online shape as text + one-line host-may-reject note; optional local companion; no jailbreak wrapper |
-| grok / image2 / spicy / 线上 | dialect grok_spicy; default **Grok L5 T1**; L1/L2/L3 if named; L4 / 半遮 / 写真 → T2 |
+| grok / image2 / spicy / 线上 | dialect grok_spicy; default **Grok L2 T-L2**; L1/L3/L4/L5 named → that rung (全裸 / 脱光 → T1); L4 / 半遮 / 写真 → T2 |
 | grok L1 / 着衣 / 剪影 / 封面 | Grok **L1 T-L1** |
 | grok L2 / 走光 / 滑肩 / 乳沟 | Grok **L2 T-L2** |
 | grok L3 / 半裸 / 露胸 / 解开 | Grok **L3 T-L3** |
@@ -57,7 +57,7 @@ When the user pastes a long English prompt:
 
 ## Defaults when unspecified
 
-House style T1: 22-year-old Japanese beauty, G-cup, almond eyes, **completely nude**, robe folded behind heels, S3 light on thigh gap, garden, Rembrandt, limb-lock hands. Unspecified dialect → **Grok L5 T1**. Dual Flux+Pony only if 本地/flux/pony. L4 worn robe = T2.
+House style: 22-year-old Japanese beauty, G-cup, almond eyes, robe worn and tied with one shoulder slipped + cleavage, hips covered, garden, Rembrandt, limb-lock hands. Unspecified → **Grok L2 T-L2**; 全裸 / 脱光 → **T1** (nude L5, S3). Dual Flux+Pony only if 本地/flux/pony. L4 worn half-fallen robe = T2.
 
 ## Non-triggers
 
