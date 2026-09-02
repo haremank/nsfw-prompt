@@ -72,12 +72,12 @@ Spicy Mode is xAI's official adult lane (18+, X Premium). No negative prompt fie
 - **L4** scraps / high exposure = T2. Half-fallen robe still worn, breasts out, lower body readable around sash.
 - **L5** (default, **no worn clothes**) = T1. Completely nude, robe folded behind heels, S3 light on the thigh gap. S1/S2 variants; S4 展示私处 is a user override.
 
-成年萝莉 = T6, only if named. Former L6–L9 map to L5. Five-layer anatomy stays on local stacks. If L4/L5 fail the host, drop to L3 rather than iterating anatomy blocks.
+Former L6–L9 map to L5. Five-layer anatomy stays on local stacks. If L4/L5 fail the host, drop to L3 rather than iterating anatomy blocks.
 
 ### Grok writing rules
 
 - Full natural-language paragraphs, no tag soup. Art-direction opener (`Editorial photograph...` / `Cinematic still from a fragrance campaign...` / `High-end boudoir study...`), one line.
-- Camera + lens + light as one sentence — Grok's strongest hook. Setups from `10-lighting-film.md`. Wardrobe: L1 closed robe; L2 one-shoulder leak; L3 topless + hips wrapped; L4 = T2 worn half-fallen; L5 = T1 **no worn clothes**. 萝莉 specialization = T6.
+- Camera + lens + light as one sentence — Grok's strongest hook. Setups from `10-lighting-film.md`. Wardrobe: L1 closed robe; L2 one-shoulder leak; L3 topless + hips wrapped; L4 = T2 worn half-fallen; L5 = T1 **no worn clothes**.
 - Body language carries the erotic charge. Safe-hands catalog from `09-pose-library.md`; hands never between thighs. Solo Grok: apply the **limb-lock** in `09-pose-library.md` (right hand + fan at cheek, left arm hanging, both feet planted, exact counts). Do not emit fan-at-face plus raised second hand — that scrambles limbs.
 - Cultural/mystique flavor stabilizes passes: keep at least one of `otherworldly / ethereal / languid / decadent / supernatural / yoki / lonely yet elegant`. Keep exactly one film reference in the closing line (a modifier pile blurs — see ξ).
 - Base assembly: R13/R19 + one delta row from 06. Do not stack five-layer anatomy or tag tokens into Grok prose (they fail: L5-A/B, R22).

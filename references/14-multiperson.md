@@ -36,21 +36,12 @@ For any scene with 2+ subjects. Tag dialects use the per-person pose lines in [p
 - Double-bind each person: hair color + robe/garment color (`raven-black for the woman in crimson`), stated once per person in her own sentence.
 - Shared styling (ornaments, makeup) may stay in one global sentence — that behaves like a validated common-prompt block.
 
-## Mixed-height / petite-adult in a group (R29–R32)
-
-Petite adult (including adult-loli-type styling) is allowed; child body is not. Evidence: R29 sandwich ✅ as adult; R30 carrying ⚠️ hid the height gap; R32 close view ✅.
-
-- **Do not carry her** to show petite-ness — lifting her head to his chin cancels the height gap (R30).
-- **Full-body / same-plane (萝莉 variant only):** numeric heights (`148cm` vs `175cm` / `185cm`), she stands at the front on the same paving, on tiptoes still only reaching his collarbone; oversized robe hem pooling vs others mid-calf; oversized fan as a scale prop (R31). Petite adult / small B-cup — do not give her hourglass, and do not stack large-head / nearly-flat.
-- **Close view (85mm, mid-thigh up):** keep only in-frame rulers — collarbone reach + his large hand spanning her entire small waist (R32 ✅). Drop pooling hems and feet.
-- Always keep `22-year-old adult` + `unmistakably adult` in her own sentence next to youthful-face tokens. House group default is T7 (G-cup). Petite tokens only if 萝莉 was named.
-- Grok prompt cap: keep the merged block under ~4000 characters.
-
 ## Camera and framing
 
 - One simple camera clause only; complex modifiers (from above, dutch angle) destabilize 3+ person scenes.
 - Pull back for 4+: `medium-wide shot, 50mm lens, camera pulled back so all five figures fit fully in the wide frame`; wide/landscape framing helps.
 - Keep the background explicitly clean: `clean and uncluttered`.
+- Grok prompt cap: keep the merged block under ~4000 characters.
 
 ## Process and failure checklist
 

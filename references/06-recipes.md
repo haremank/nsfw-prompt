@@ -142,7 +142,7 @@ Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-ye
 
 Former Grok L5–L8 are collapsed into **one user-facing L5**. Historical ids stay as evidence; do not expose L6/L7/L7.5/L8 as rungs.
 
-**Canonical L5 assembly (default 线上):** user house style T1 — G-cup Japanese beauty, worn half-fallen pale-blue-and-gold robe, lower body fully visible and unobstructed, light-touch sheen. Paste-ready: T1 in [15-online-tests.md](15-online-tests.md). 成年萝莉 is T6 opt-in, not this default.
+**Canonical L5 assembly (default 线上):** user house style T1 — G-cup Japanese beauty, worn half-fallen pale-blue-and-gold robe, lower body fully visible and unobstructed, light-touch sheen. Paste-ready: T1 in [15-online-tests.md](15-online-tests.md).
 
 R15–R21 remain clause swaps on R13. Assemble: paste R13, replace the clause starting `the robe trailing to her calves but her lower body is otherwise bare...` up to `...jeweled hip chain catching the light.` with the exact replacement below. Evidence per row: 13-testlog.md. Word order inside a pattern is not the pass condition — the fabric/literary pattern is.
 
@@ -168,15 +168,14 @@ Appends (added at the end of the assembled prompt, never inside the lower-body c
 
 Supine variant: R19 is the base for reclined poses — keep its full text above and apply the same L5–L7.5 clause swaps (its lower-body sentence is `the rest of the fabric trailing below in soft folds hinting at the skin beneath, with the inner edge of the wrap falling in a single line between her softly open knees, paired with ...`).
 
-### Shared Grok shape (five rungs × two styles)
+### Shared Grok shape (five rungs)
 
 1. **L1–L3** = normal-generation worn garment, no private-region sentence (T-L1 / T-L2 / T-L3).
 2. **L4** = worn half-fallen robe, breasts out, lower body readable (T2).
 3. **L5** = house T1: no worn clothes, robe folded behind heels, G-cup, S3 light on thigh gap. Online default.
-4. **两种风格**：默认 = G-cup / almond / golden ratio。萝莉（点名）= 148cm / round youthful adult face / small B-cup；**同一档衣服**，只换身高脸型身材。T6 = L5 萝莉（丢袍，不是半褪穿着）。
-5. **Anatomy stays light-touch** — five-layer block only on local stacks.
-6. **Literary language beats explicit verbs** (L6-A/B, L5-C failed; R18–R20, κλμ passed).
-7. **Accessories:** L4 sash + hip chain; L5 hip chain only. Never covering.
-8. **Hands:** Grok solo limb-lock (right fan at cheek, left arm hanging, both feet planted, named sides + exact counts). Never fan-at-face plus a raised second hand. Never between thighs. Supine: both hands at sides.
-9. **Cultural/mystique flavor** + **film tail:** languid/yoki + `85mm … Rembrandt … Portra 400`.
-10. If L5 private region renders soft, add local companion (R12 Pony / R1 Flux); do not put five-layer anatomy into Grok. If L4/L5 fail the host, drop to L3.
+4. **Anatomy stays light-touch** — five-layer block only on local stacks.
+5. **Literary language beats explicit verbs** (L6-A/B, L5-C failed; R18–R20, κλμ passed).
+6. **Accessories:** L4 sash + hip chain; L5 hip chain only. Never covering.
+7. **Hands:** Grok solo limb-lock (right fan at cheek, left arm hanging, both feet planted, named sides + exact counts). Never fan-at-face plus a raised second hand. Never between thighs. Supine: both hands at sides.
+8. **Cultural/mystique flavor** + **film tail:** languid/yoki + `85mm … Rembrandt … Portra 400`.
+9. If L5 private region renders soft, add local companion (R12 Pony / R1 Flux); do not put five-layer anatomy into Grok. If L4/L5 fail the host, drop to L3.

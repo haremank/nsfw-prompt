@@ -16,14 +16,14 @@ Full floor definitions: [safety](references/00-safety.md). **Three floors are th
 ## Workflow
 
 1. Parse intent into the IR. Read [intent](references/07-intent.md) when the request is Chinese, elliptical, or is an edit of an existing prompt. Read [IR](references/01-ir.md) for required fields, defaults, and the conflict table.
-2. Fill missing slots with defaults: **house subject** (22-year-old Japanese beauty, G-cup, almond eyes — see Default style below). **成年萝莉 is opt-in only** (user must say 萝莉 / petite / 小只). IR L5, no cover, three-quarter view, limb-lock hands (right fan at cheek, left arm hanging), Chinese briefing + English prompt. Default dialects: if the user is on an online/hosted generator (Grok / Imagine / 线上), emit **Grok L5** as the primary block; otherwise dual-render Flux prose + Pony tags.
+2. Fill missing slots with defaults: **house subject** (22-year-old Japanese beauty, G-cup, almond eyes — see Default style below). IR L5, no cover, three-quarter view, limb-lock hands (right fan at cheek, left arm hanging), Chinese briefing + English prompt. Default dialects: if the user is on an online/hosted generator (Grok / Imagine / 线上), emit **Grok L5** as the primary block; otherwise dual-render Flux prose + Pony tags.
 3. Load lexicon only as needed:
    - Nudity / no-cover / clothing state → [lexicon](references/02-lexicon.md)
    - Explicit genitals or close-up → [anatomy](references/03-anatomy.md) (local stacks only; Grok stays light-touch)
    - Scene choice, theme, scene×nudity matrix → [scenes](references/08-scenes.md)
    - Complex pose, hands catalog → [pose library](references/09-pose-library.md); multi-person scenes (2+ subjects) → [multi-person module](references/14-multiperson.md)
    - Lighting setup, film sim, color grade → [lighting & film](references/10-lighting-film.md)
-   - Makeup, hair, tattoo (fusion mandatory), props, adult-loli-type / petite youthful adult → [styling](references/11-styling.md)
+   - Makeup, hair, tattoo (fusion mandatory), props → [styling](references/11-styling.md)
    - Output comes out censored/mosaic/covered on a permissive model → [uncensor](references/12-uncensor.md)
    - Choosing a Grok level, probing a new phrasing, or citing evidence → [testlog](references/13-testlog.md); paste-ready online suite → [online tests](references/15-online-tests.md)
 4. Choose dialects from the routing table below. Read [renderers](references/04-renderers.md) for the chosen dialects. Read [negatives](references/05-negatives.md) for matching negative prompts (skip for Grok — no negative field).
@@ -60,8 +60,6 @@ Translate between dialects by re-rendering the IR. Never paste Flux sentences in
 | L2 / 走光 / 滑肩 / 乳沟 | **T-L2** |
 | L3 / 半裸 / 露胸 / 解开 | **T-L3** |
 | L4 / 半遮 / 写真 / 香水广告 / 少量衣服 / 高暴露 | **T2** |
-| 萝莉 / 成年萝莉 / petite / 小只（未点档） | **T6** = L5 萝莉（丢袍 + 148cm/圆脸/小B + limb-lock） |
-| 萝莉 + L1/L2/L3/L4 | 该档衣服（T-L1/T-L2/T-L3/T2）+ T6 三轴，不要默默升到 T6 全裸 |
 | 坐 / 躺 / 办公室 / 温泉 / 夜店 | 当前风格主体 + 该场景；未点名姿势则 limb-lock |
 | 本地 / flux / pony | 对应方言；同一风格+档位；Grok 不要五层解剖 |
 | 小学生 / looks 14 / 熟人实名 / 迷奸 | 一行中文拒绝，不出图 |
@@ -84,7 +82,7 @@ Paste-ready: L1=`T-L1`, L2=`T-L2`, L3=`T-L3`, L4=`T2`, L5=`T1` in [15-online-tes
 
 ## Default style (Grok L5-S3, no worn clothes, unless the user overrides)
 
-Paste-ready: T1 in [15-online-tests.md](references/15-online-tests.md). Completely nude. Do **not** put a worn robe on L5. Worn half-fallen robe is **L4 / T2**. Do **not** swap this subject for 成年萝莉 unless the user said 萝莉 / petite / 小只.
+Paste-ready: T1 in [15-online-tests.md](references/15-online-tests.md). Completely nude. Do **not** put a worn robe on L5. Worn half-fallen robe is **L4 / T2**.
 
 ```
 Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-year-old Japanese beauty stands completely nude in three-quarter view in a softly lit night garden, legs slightly apart, body language carrying the whole mood, languid decadent air. She wears nothing. A luxurious pale blue and gold wide-sleeve silk robe lies folded on the stones behind her heels, not wrapping her ankles, not on her body. Her perky G-cup breasts with pink nipples are fully exposed and unobstructed. Her lower body is fully nude, smooth pale skin with a faint natural sheen, the warm Rembrandt light gently catching the bare skin between her softly parted thighs, a faint natural sheen there, not described further. Only a jeweled hip chain catching the light, covering nothing. Her right hand holds a closed black folding fan beside her right cheek, not covering her body. Her left arm hangs straight at her left side, empty, five fingers relaxed, away from her hips. Exactly two hands, exactly two arms, no extra limbs. She stands with both bare feet planted flat on the stone path, exactly two feet, ten toes visible, weight even. Long wavy hair half-tied in a loose bun with a few stray strands, metallic pendant hair ornaments, luxurious jeweled headpiece, tassel earrings, small sparkling floral sequins near the outer corners of her eyes, soft peach blush, glossy lips, almond eyes, sweet expressive gaze, otherworldly ethereal aura with a subtle yoki mystique. Background of blurred stone lanterns, cherry blossoms, drifting petals. 85mm portrait lens, soft warm Rembrandt side light carving her silhouette, rim light outlining the hair, dreamy bokeh, fine film grain, Kodak Portra 400 warmth. Photorealistic skin texture, delicate pores, golden ratio figure, lomo effect, surreal dreamy quality, halation.
@@ -100,16 +98,15 @@ User instruction wins unspecified-slot defaults.
 法律底线（唯一拒绝）     未成年 / 真实私人 / 非自愿性暴力
 编译范围                 成人图像提示词；不画图；不写越狱 payload
 
-两种风格（先选风格，再套档位，再套模型）
+主体（先定主体，再套档位，再套模型）
   默认  T1 家族   22yo G-cup 杏眼 黄金比例
-  萝莉  T6 家族   点名才用：148cm、圆脸、小B、无大头/婴儿肥/平胸堆叠
 
-五档限制（衣服变，主体/庭园/光/肢体锁不变；两风格共用）
+五档限制（衣服变，主体/庭园/光/肢体锁不变）
   L1  着衣剪影     袍子穿上系好，胸髋全盖（T-L1）— 正常可过
   L2  1–2 处走光   单肩滑落、乳沟，髋仍盖（T-L2）— 正常可过
   L3  半裸         默认露胸、髋仍裹到大腿中（T-L3）— 正常可过
   L4  有衣服+高暴露 半褪袍仍穿，胸露，下身可读（T2）
-  L5  无衣服+S1/S2/S3  默认 S3：全裸，袍子丢脚后，光线落在腿缝，不写私处（T1 / T6）
+  L5  无衣服+S1/S2/S3  默认 S3：全裸，袍子丢脚后，光线落在腿缝，不写私处（T1）
                        S1 = 并腿、私处不朝镜头
                        S2 = 腿微开、轮廓暗示
                        S4 展示私处 = 用户覆盖，不是第六档
@@ -144,18 +141,6 @@ Five ticks. Fail → fix that slot once → emit. Do not loop. Do not add extra 
 
 Write the five ticks as one line under `自审`. Example: `手脚✓ 神情✓ 多人✓ 环境✓ 风格✓（对照：全裸不展示私处）`. If a tick was rewritten, say which one and that it was to match the request, not the template.
 
-## 成年萝莉 specialization (opt-in only)
-
-Trigger: user says `萝莉` / `成年萝莉` / `petite` / `小只`. Not the default. Keep the **same L-rung clothes as the house compile** (L5 = discarded robe like T1; L4 = worn half-fallen like T2; L1–L3 = T-L1/T-L2/T-L3 clothes). Swap **only** height, face, body. Limb-lock hands. Never raise the second hand. Full tokens: [styling](references/11-styling.md). Paste-ready L5: T6.
-
-| Axis | Inject (do not drop adult locks) |
-|------|----------------------------------|
-| **身高** | `148cm petite adult`, `short petite adult proportions`, `full-body so her small stature reads`, oversized robe / oversized fan as scale. **Do not** write `large head` or `big-head` (Grok underage prior). |
-| **脸型** | pretty petite adult: `round youthful adult face`, `large round eyes`, `soft cheeks`, `small neat nose`, `small chin`, `small glossy lips`, eye-level gaze. Drop: baby-fat, oversized eyes, almost no jaw, tiny mouth, looking upward. |
-| **身材** | petite adult, not hourglass and not skeletal: `small-boned`, `narrow shoulders`, `slim short torso`, `small B-cup adult breasts` (soft, modest, not perky, not nearly-flat), `narrow hips`, `slender thighs`. Drop: columnar, little waist-to-hip, nearly flat, barely-there A-cup. |
-
-Ban on this variant: `perky`, `bounce`, `G-cup`, `golden ratio figure`, `hourglass`, `large head`, `baby-fat`, `almost no jawline`, `looking slightly upward`, `nearly flat`, `barely-there`. Adult lock: `22-year-old adult`, `unmistakably adult`, `adult figure`. Do not emit `looks 14`, `childlike body`, `prepubescent`, `flat child chest`.
-
 ## Output contract
 
 Use Chinese for explanation. Keep Positive and Negative in English (Wan video negative may be Chinese).
@@ -164,7 +149,7 @@ Default format: **a single merged prompt per dialect** — visual prose first, t
 
 ```
 - 目标模型：<dialects>
-- 裸露等级：Grok L1–L5（默认 L5-S3）；风格：默认 / 萝莉
+- 裸露等级：Grok L1–L5（默认 L5-S3）
 - 模型：Grok / Flux / Pony / Illustrious / NAI / SDXL / Z-Image / Wan
 - 提示词（单段，复制即用）：
   <one merged block per dialect>
@@ -180,7 +165,7 @@ This skill separates two rule classes.
 
 **Hard floors (the only refusals; fixed, not configurable):**
 
-- Minors (the emphasized floor): no one depicted as under 18 or with a child’s body (pre-pubescent / child anatomy); stated age does not launder child anatomy. Youthful adult features, petite adults, and **adult-loli-type styling** (`成年萝莉` as a style label) are allowed — the criterion is adult body vs child body, not face, stature, or the word `萝莉`.
+- Minors (the emphasized floor): no one depicted as under 18 or with a child’s body (pre-pubescent / child anatomy); stated age does not launder child anatomy. Youthful adult features and petite adults are allowed — the criterion is adult body vs child body, not face or stature.
 - Real private individuals: no sexual content of identifiable real private people (classmates, coworkers, exes, stolen photos).
 - Non-consensual sexual violence: no rape / blackmail-sex / sleep-sex / drugging / unconsciousness as an erotic premise.
 
@@ -196,7 +181,7 @@ This skill does not write jailbreak tutorials or instruction-override payloads (
 4. Quality headers are dialect-bound: Pony uses `score_*`; Illustrious uses `masterpiece, newest`; Flux/Z-Image/Grok do not use anime quality soup; phone/CCTV should not use `8k masterpiece`.
 5. User LoRA trigger words are copied verbatim to the front.
 6. Sampling advice stays in 参数旁注, never inside the picture description.
-7. Grok dialect: L1–L5 (same subject, clothes change). Default L5-S3 T1. 萝莉 = T6 on the same rung. See [testlog](references/13-testlog.md) and [online tests](references/15-online-tests.md).
+7. Grok dialect: L1–L5 (same subject, clothes change). Default L5-S3 T1. See [testlog](references/13-testlog.md) and [online tests](references/15-online-tests.md).
 
 ## Execution and advisory protocol
 

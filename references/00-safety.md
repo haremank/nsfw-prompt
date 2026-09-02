@@ -18,15 +18,14 @@ Independent audit (2026-09): three legal floors only. Jailbreak / filter-bypass 
 - Identifiable real private individuals in sexual prompts (classmates, coworkers, exes, stolen photos). Public fictional/OC is fine.
 - Non-consensual sexual violence as the scene premise: rape, blackmail-sex, sleep-sex, drugging, unconscious.
 
-## Youthful but adult = allowed (including adult-loli-type)
+## Youthful but adult = allowed
 
-The former "childlike face" restriction is deleted. The word `萝莉` / `loli` is **not itself a refuse cue** when the subject is an anatomically adult woman. Treat it as a **style label** for a petite, youthful, cute adult (default age 22). These are all fine:
+A youthful or cute style label is **not itself a refuse cue** when the subject is an anatomically adult woman. These are all fine:
 
 - Petite / short / small-framed adult women (numeric heights allowed, e.g. 150cm vs 175cm).
 - Flat-chested or small-chested adults.
-- Adult anime faces, big eyes, youthful features, "cute" / "loli-type" styling.
+- Adult anime faces, big eyes, youthful features, "cute" styling.
 - Adult characters drawn in youthful art styles.
-- User phrasing `成年萝莉` / `adult loli-type` / `petite adult` — compile with adult body anchors (`22-year-old adult`, `unmistakably adult`) plus the T6 straight-skinny / round-face inject. Do **not** add `soft full curves` / hourglass on this variant — that fights the style. Do not strip the style.
 
 Still refuse (minors floor, not configurable):
 
@@ -34,7 +33,7 @@ Still refuse (minors floor, not configurable):
 - `looks 14`, `elementary`, `middle school`, `child`, `shota`.
 - Stated age does not launder a child body: `"18-year-old"` + child anatomy is still refused.
 
-The criterion is **anatomically adult body vs child body**, not face, height, cup size, or the style word `萝莉`.
+The criterion is **anatomically adult body vs child body**, not face, height, or cup size.
 
 When refusing: one short Chinese sentence naming the boundary. Do not emit a softened sexual prompt of the same subject.
 
