@@ -4,12 +4,12 @@
   "owner": {
     "name": "haremank"
   },
-  "description": "NSFW Prompt Compiler — adult image-prompt skill for Grok and local stacks",
+  "description": "NSFW 提示词编译器：Grok 与本地栈（Flux / Pony / Illustrious / SDXL / Z-Image）",
   "plugins": [
     {
       "name": "nsfw-prompt",
       "source": "./",
-      "description": "Compile adult NSFW image prompts: house default or opt-in 成年萝莉, Grok L1–L5 plus Flux/Pony/Illustrious/SDXL/Z-Image.",
+      "description": "成人 NSFW 图像提示词编译：Grok L1–L5，以及 Flux / Pony / Illustrious / NAI / SDXL / Z-Image / Wan。",
       "version": "1.0.0",
       "license": "MIT",
       "keywords": [

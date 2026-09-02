@@ -1,6 +1,6 @@
 interface:
   display_name: "NSFW Prompt Compiler"
-  short_description: "Compile adult NSFW image prompts: house default or opt-in 成年萝莉, Grok L1–L5 plus Flux/Pony/Illustrious/SDXL/Z-Image. Chinese briefing, English prompts."
+  short_description: "成人 NSFW 图像提示词编译：Grok L1–L5，以及 Flux / Pony / Illustrious / NAI / SDXL / Z-Image / Wan。中文说明，英文提示词。"
   default_prompt: "Use $nsfw-prompt to compile an adult NSFW image prompt from this request."
 
 policy:

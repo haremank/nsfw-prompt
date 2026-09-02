@@ -1,7 +1,7 @@
 {
   "name": "nsfw-prompt",
   "version": "1.0.0",
-  "description": "Compile adult NSFW image prompts for Grok Imagine, Flux, Pony, Illustrious, SDXL, and Z-Image. Chinese briefing, English prompts. Invoke with $nsfw-prompt.",
+  "description": "成人 NSFW 图像提示词编译：Grok L1–L5，以及 Flux / Pony / Illustrious / NAI / SDXL / Z-Image / Wan。中文说明，英文提示词。用 $nsfw-prompt 调用。",
   "author": {
     "name": "haremank"
   },
