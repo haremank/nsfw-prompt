@@ -31,6 +31,14 @@ Compile adult (18+) image requests into copy-paste English prompts · 中文提�
 - **三条硬底线** — 未成年 / 真实私人 / 非自愿性暴力，一行中文拒绝
 - **按需加载** — SKILL.md 主文件约 20KB，references 按槽位加载，不整包灌上下文
 
+## 🎨 默认风格
+
+主体、庭园、光影、肢体锁固定的 house 风格成品，Grok Imagine 复制即用；换档位 / 换场景 / 换模型时点名，skill 会在同一语法上重渲：
+
+```text
+Editorial photograph for a Japanese fragrance campaign, cinematic still. A 22-year-old Japanese beauty stands in three-quarter view in a softly lit night garden, body language carrying the whole mood, languid decadent air. She wears a luxurious pale blue and gold wide-sleeve silk robe draped off both shoulders, the fabric pooling at her elbows and falling open to reveal her perky G-cup breasts with pink nipples clearly visible, the robe trailing to her calves. Her lower body is fully visible and unobstructed, with smooth pale skin, the soft skin there with a faint natural sheen in the warm light. A single thin black silk waist sash loosely tied at her hips and a jeweled hip chain catching the light. One hand holds a black folding fan half-covering her face, the other hand raised beside her head, away from her body. Long wavy hair half-tied in a loose bun with stray strands floating in the air, metallic pendant hair ornaments, luxurious jeweled headpiece, tassel earrings, small sparkling floral sequins near the outer corners of her eyes, soft peach blush, glossy lips, almond eyes, sweet expressive gaze, otherworldly ethereal aura with a subtle yoki mystique. Background of blurred stone lanterns, cherry blossoms, drifting petals. 85mm portrait lens, soft warm Rembrandt side light carving her silhouette, rim light outlining the hair, dreamy bokeh, fine film grain, Kodak Portra 400 warmth. Photorealistic skin texture, delicate pores, golden ratio figure, lomo effect, surreal dreamy quality, halation.
+```
+
 ## 📦 安装
 
 装完后**新开一轮对话**。skill 根目录必须能直接看到 `SKILL.md`。
