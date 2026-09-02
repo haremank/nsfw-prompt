@@ -85,18 +85,7 @@ git clone https://github.com/haremank/nsfw-prompt.git "$env:USERPROFILE\.agents\
 
 更新：在 skill 目录里 `git pull`。
 
-### 3. 插件市场（Claude Code / ZCode）
-
-Claude Code 会话内：
-
-```text
-/plugin marketplace add haremank/nsfw-prompt
-/plugin install nsfw-prompt@nsfw-prompt
-```
-
-ZCode：设置 → 插件管理 → 发现 → `+` → 填 GitHub 仓库 `haremank/nsfw-prompt` → 安装 `nsfw-prompt`。
-
-### 4. ZIP 下载
+### 3. ZIP 下载
 
 - [最新 Release](https://github.com/haremank/nsfw-prompt/releases/latest)
 - [main 分支 zip](https://github.com/haremank/nsfw-prompt/archive/refs/heads/main.zip)
@@ -141,9 +130,6 @@ README.md                本页
 LICENSE
 agents/openai.yaml       Codex / ChatGPT 展示；关闭隐式触发
 references/              按需加载（安全、IR、方言、配方、测试）
-.zcode-plugin/           ZCode 市场与插件清单
-.claude-plugin/          Claude Code 市场与插件清单
-.codex-plugin/           Codex 插件清单
 ```
 
 ## 许可
