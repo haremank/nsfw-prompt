@@ -1,0 +1,29 @@
+{
+  "name": "nsfw-prompt",
+  "owner": {
+    "name": "haremank"
+  },
+  "metadata": {
+    "description": "NSFW Prompt Compiler — adult image-prompt skill for Grok and local stacks",
+    "homepage": "https://github.com/haremank/nsfw-prompt",
+    "repository": "https://github.com/haremank/nsfw-prompt",
+    "license": "MIT",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "nsfw-prompt",
+      "source": "./",
+      "description": "Compile adult NSFW image prompts: house default or opt-in 成年萝莉, Grok L1–L5 plus Flux/Pony/Illustrious/SDXL/Z-Image.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": [
+        "nsfw",
+        "prompt",
+        "grok",
+        "flux",
+        "image-generation"
+      ]
+    }
+  ]
+}

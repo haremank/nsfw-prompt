@@ -1,0 +1,12 @@
+{
+  "name": "nsfw-prompt",
+  "version": "1.0.0",
+  "description": "Compile adult NSFW image prompts for Grok Imagine, Flux, Pony, Illustrious, SDXL, and Z-Image. Chinese briefing, English prompts. Invoke with $nsfw-prompt.",
+  "author": {
+    "name": "haremank"
+  },
+  "homepage": "https://github.com/haremank/nsfw-prompt",
+  "repository": "https://github.com/haremank/nsfw-prompt",
+  "license": "MIT",
+  "skills": "."
+}
